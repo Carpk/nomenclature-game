@@ -16,13 +16,16 @@
     <h1>Learn Nomenclature</h1>
 
 
-
-
     <main role="main">
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <div class="container">
-	    <p>This is the area where the element boxes will populate</p>
+	  <div class="row">
+	    <div class="col-md-7" id="eleBoxesField">
+	    </div>
+	    <div class="col-md-5" id="answersField">
+            </div>
+          </div>
         </div>
       </div>
       <div class="container">
@@ -45,54 +48,77 @@
 
 <script type="text/javascript">
 
+var input = document.getElementById("inputCompoundName");
+
 var card 
+
+
+function displayEleBox(ele) {
+
+  document.getElementById('eleBoxesField').innerHTML = ele.name
+
+
+}
+
+
+
+function findEleNames(compoundArray) {
+  var nameArray = []
+  for (ci in compoundArray) {
+    console.log(compoundArray[ci])
+    for (ti in table) {
+      if (table[ti].symbol == compoundArray[ci]) {
+        console.log("found symbol: " + table[ti].name)
+	nameArray.push(table[ti].name);
+		
+	//displayEleBox(table[ti]);
+      }
+    }
+  }
+  document.getElementById('eleBoxesField').innerHTML = nameArray 
+}
+
+
+
+function getNewCard() {
+  card = cards[getRandomInt()]
+  var compoundArray = getCompoundArray(card.formula)
+  console.log(compoundArray)
+  
+  findEleNames(compoundArray)
+  
+  
+  document.getElementById("formula").innerHTML = card.formula
+  
+}
+
 
 getNewCard();
 
 
 
-
-
-'use strict';
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+function processAnswer() {
+  displayAnswer(document.getElementById('inputCompoundName').value);
 }
 
-async function demo() {
-  await sleep(1000);
+
+function main() {
+  processAnswer()
+  input.value = "";
   getNewCard();
 }
 
 
-function showAnswer(userInput) {
-  document.getElementById("correctAnswer").innerHTML = card.formula + ": " + card.name + " - " + userInput
-}
-
-function log() {
-  console.log("success!!")
-}
-
-
-function processAnswer() {
-  console.log(document.getElementById('inputCompoundName').value);
-  var userInput = document.getElementById('inputCompoundName').value
-  showAnswer(userInput);
-  input.value = "";
-  demo();
-}
-
-
 document.getElementById("button").onclick = function() {
-  processAnswer();
+  main();
+  // auto focus back to input field
 };
 
-
-var input = document.getElementById("inputCompoundName");
 
 input.addEventListener("keydown", function(event) {
   if (event.keyCode === 13) {
     event.preventDefault();
-    processAnswer();
+    main();
   }
 });
 

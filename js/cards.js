@@ -14,7 +14,7 @@ var cards = [
   {name: "Calcium sulfate", formula: "CaSO<sub>4</sub>"},
   {name: "Nitric acid", formula: "HNO<sub>3</sub>"},
   {name: "Sodium carbonate", formula: "Na<sub>2</sub>CO<sub>3</sub>"},
-  {name: "Magnesium sulfate", formula: "MgSO<sub>4</sub>"},
+  {name: "Magnesium Sulfate", formula: "MgSO<sub>4</sub>"},
   {name: "Potassium hydroxide", formula: "KOH"}
 ]
 
