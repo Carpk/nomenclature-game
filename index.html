@@ -10,6 +10,7 @@
 
     <script type="text/javascript" src="js/cards.js"></script>
     <script type="text/javascript" src="js/eleTable.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
   </head>
   <body>
     <h1>Learn Nomenclature</h1>
@@ -32,50 +33,68 @@
               <form class="form-signin">
 	        <h1 class="h3 mb-3 font-weight-normal" id="formula" >H<sub>2</sub>PO<sub>4</sub></h1>
                 <label for="inputCompoundName" class="sr-only">Compound Name</label>
-                <input type="text" id="inputCompoundName" class="form-control" placeholder="hydrogen carbonate" autofocus>
+                <input type="text" id="inputCompoundName" class="form-control" placeholder="hydrogen carbonate" autocomplete="off" autofocus>
                 <button class="btn btn-lg btn-primary btn-block" id="button" type="button">Check</button>
               </form>
             </div>
           </div>
-          <div class="col-md-4"></div>
+          <div class="col-md-4" id="correctAnswer"></div>
         </div>
       </div> <!-- /container -->
     </main>
 
 <script type="text/javascript">
-function getRandomInt() {
-  return Math.floor(Math.random() * Math.floor(cards.length));
-}
 
-var card = cards[getRandomInt()]
+var card 
+
+getNewCard();
+
+
+
+
+
 'use strict';
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function demo() {
-  await sleep(2500);
+  await sleep(1000);
   getNewCard();
 }
 
 
-function showAnswer() {
-  document.getElementById("formula").innerHTML = card.name
+function showAnswer(userInput) {
+  document.getElementById("correctAnswer").innerHTML = card.formula + ": " + card.name + " - " + userInput
 }
 
 function log() {
   console.log("success!!")
 }
 
-function getNewCard() {
-  card = cards[getRandomInt()]
-  document.getElementById("formula").innerHTML = card.formula
+
+function processAnswer() {
+  console.log(document.getElementById('inputCompoundName').value);
+  var userInput = document.getElementById('inputCompoundName').value
+  showAnswer(userInput);
+  demo();
 }
 
-  document.getElementById("button").onclick = function() {
-    showAnswer();
-    demo();
-  };
+
+document.getElementById("button").onclick = function() {
+  processAnswer();
+};
+
+
+var input = document.getElementById("inputCompoundName");
+
+input.addEventListener("keydown", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    processAnswer();
+  }
+});
+
 
 
 </script>
