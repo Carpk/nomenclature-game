@@ -1,14 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Nomenclature</title>
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/application.css" type="text/css">
-    <title>Nomenclature</title>
+
+    <script type="text/javascript" src="js/cards.js"></script>
+    <script type="text/javascript" src="js/eleTable.js"></script>
   </head>
   <body>
     <h1>Learn Nomenclature</h1>
@@ -29,10 +30,10 @@
           <div class="col-md-4">
             <div class="text-center">
               <form class="form-signin">
-	        <h1 class="h3 mb-3 font-weight-normal">H<sub>2</sub>PO<sub>4</sub></h1>
+	        <h1 class="h3 mb-3 font-weight-normal" id="formula" >H<sub>2</sub>PO<sub>4</sub></h1>
                 <label for="inputCompoundName" class="sr-only">Compound Name</label>
-                <input type="text" id="inputCompoundName" class="form-control" placeholder="hydrogen carbonate" required autofocus>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Check</button>
+                <input type="text" id="inputCompoundName" class="form-control" placeholder="hydrogen carbonate" autofocus>
+                <button class="btn btn-lg btn-primary btn-block" id="button" type="button">Check</button>
               </form>
             </div>
           </div>
@@ -41,10 +42,43 @@
       </div> <!-- /container -->
     </main>
 
+<script type="text/javascript">
+function getRandomInt() {
+  return Math.floor(Math.random() * Math.floor(cards.length));
+}
+
+var card = cards[getRandomInt()]
+'use strict';
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function demo() {
+  await sleep(2500);
+  getNewCard();
+}
 
 
+function showAnswer() {
+  document.getElementById("formula").innerHTML = card.name
+}
+
+function log() {
+  console.log("success!!")
+}
+
+function getNewCard() {
+  card = cards[getRandomInt()]
+  document.getElementById("formula").innerHTML = card.formula
+}
+
+  document.getElementById("button").onclick = function() {
+    showAnswer();
+    demo();
+  };
 
 
+</script>
 
 
     <!-- Optional JavaScript -->
