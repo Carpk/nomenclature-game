@@ -1,4 +1,4 @@
-var cards = [
+var covalentDeck = [
   {name: "Nitrogen dioxide", formula: "NO<sub>2</sub>"},
   {name: "Dichlorine heptoxide", formula: "Cl<sub>2</sub>O<sub>7</sub>"},
   {name: "Calcium oxide", formula: "CaO"},
