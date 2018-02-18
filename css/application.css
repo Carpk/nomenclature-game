@@ -6,6 +6,7 @@
 #answersField {
   border-radius: .25rem;
   display: inline-table;
+  padding: 9px 18px 12px 18px;
 }
 
 .eleBox {

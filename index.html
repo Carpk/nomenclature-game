@@ -26,10 +26,8 @@
       <div class="jumbotron">
         <div class="container">
 	  <div class="row">
-	    <div class="col-md-7" id="eleBoxesField">
-	    </div>
-	    <div class="col-md-5" id="answersField">
-            </div>
+	    <div class="col-md-8" id="eleBoxesField"></div>
+	    <div class="col-md-4" id="answersField"></div>
           </div>
         </div>
       </div>
@@ -63,26 +61,26 @@ function displayEleBox(ele) {
   document.getElementById('eleBoxesField').innerHTML = ele.name
 }
 
+function eleBoxesMarkup(ele) {
+  const markup = `
+    <div class="eleBox">
+      ${ele.atomicNumber}<br>
+      ${ele.symbol}<br>
+      ${ele.name}<br>
+      ${ele.atomicMass}<br>
+    </div>
+  `
+  return markup
+}
 
 function findEleNames(compoundArray) {
   var nameArray = []
   for (ci in compoundArray) {
-    console.log(compoundArray[ci])
     for (ti in table) {
       if (table[ti].symbol == compoundArray[ci]) {
-        console.log("found symbol: " + table[ti].name)
+        var ele = table[ti]
 
-const markup = `
-  <div class="eleBox">
-    ${table[ti].atomicNumber}<br>
-    ${table[ti].symbol}<br>
-    ${table[ti].name}<br>
-    ${table[ti].atomicMass}<br>
-  </div>
-`
-        nameArray.push(markup);
-
-	//displayEleBox(table[ti]);
+        nameArray.push(eleBoxesMarkup(ele));
       }
     }
   }
@@ -94,13 +92,10 @@ const markup = `
 function getNewCard() {
   card = cards[getRandomInt()]
   var compoundArray = getCompoundArray(card.formula)
-  console.log(compoundArray)
   
   findEleNames(compoundArray)
   
-  
   document.getElementById("formula").innerHTML = card.formula
-  
 }
 
 
