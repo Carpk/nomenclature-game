@@ -17,13 +17,13 @@
     <h1 class="title">Nomenclature</h1>
     <div class="check-boxes float-right">
       <input id="ionicCheckBox" type="checkbox" disabled>
-        <span title="Neutral charged compound formed by ions, held by ionic bonding(electrostatic forces)">Ionic</span>
+        <span class="mouse-help" title="Neutral charged compound formed by ions, held by ionic bonding(electrostatic forces)">Ionic</span>
       <input id="covalentCheckBox" type="checkbox" disabled>
-        <span title="Neutral charged compound, held by covalent/molecular bond(shares electron)">Covalent</span>
+        <span class="mouse-help" title="Neutral charged compound, held by covalent/molecular bond(shares electron)">Covalent</span>
       <input id="ionsCheckBox" type="checkbox" checked disabled>
-        <span title="Charged particle formed by two or more atoms, held by covalent/molecular bond(shares electron)">Polyatomic Ions</span>
+        <span class="mouse-help" title="Charged particle, held by covalent/molecular bond(shares electron)">Ions</span>
       <input id="acidCheckBox" type="checkbox" disabled>
-        <span title="Provides hydrogen ions(H+) when dissolved in water">Acids</span>
+        <span class="mouse-help" title="Provides hydrogen ions(H+) when dissolved in water">Acids</span>
     </div> 
 
     <main role="main">
@@ -66,11 +66,20 @@ function displayEleBox(ele) {
   document.getElementById('eleBoxesField').innerHTML = ele.name
 }
 
+function getIonCharge(ionRad) {
+  var ionCharge = ionRad
+  if (false) {
+    return "<sup>" + ionCharge + "</sup>"
+
+  }
+  return ""
+}
+
 function eleBoxesMarkup(ele) {
   const markup = `
-    <div class="eleBox">
+    <div class="eleBox" style="background-color: #${ele.cpkHexColor}">
       ${ele.atomicNumber}<br>
-      ${ele.symbol}<br>
+      <b>${ele.symbol}</b>${getIonCharge(ele.ionRadius)}<br>
       ${ele.name}<br>
       ${ele.atomicMass}<br>
     </div>
