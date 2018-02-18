@@ -3,3 +3,18 @@
   display: inline-block;
 }
 
+#answersField {
+  border-radius: .25rem;
+  display: inline-table;
+}
+
+.eleBox {
+  display: inline-block;
+  text-align: center;
+  border-style: solid;
+}
+
+.check-boxes {
+  margin: 16px 24px 0px 0px;
+}
+

@@ -15,7 +15,7 @@
   </head>
   <body>
     <h1 class="title">Nomenclature</h1>
-    <div class="float-right">
+    <div class="check-boxes float-right">
       <input id="covalentCheckBox" type="checkbox" disabled> Covalent
       <input id="ionicCheckBox" type="checkbox" checked disabled> Ionic
       <input id="acidCheckBox" type="checkbox" disabled> Acids
@@ -58,13 +58,10 @@ var input = document.getElementById("inputCompoundName");
 var card 
 
 
+
 function displayEleBox(ele) {
-
   document.getElementById('eleBoxesField').innerHTML = ele.name
-
-
 }
-
 
 
 function findEleNames(compoundArray) {
@@ -74,8 +71,17 @@ function findEleNames(compoundArray) {
     for (ti in table) {
       if (table[ti].symbol == compoundArray[ci]) {
         console.log("found symbol: " + table[ti].name)
-	nameArray.push(table[ti].name);
-		
+
+const markup = `
+  <div class="eleBox">
+    ${table[ti].atomicNumber}<br>
+    ${table[ti].symbol}<br>
+    ${table[ti].name}<br>
+    ${table[ti].atomicMass}<br>
+  </div>
+`
+        nameArray.push(markup);
+
 	//displayEleBox(table[ti]);
       }
     }

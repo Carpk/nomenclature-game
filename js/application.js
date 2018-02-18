@@ -7,8 +7,6 @@ function getCompoundArray(formula) {
   return formula.match(/[A-Z][a-z]?/g);
 }
 
-
-
 function displayAnswer(userInput) {
   var color = 'tomato'
   if (card.name.toLowerCase() === userInput.toLowerCase()) {color = 'limegreen'};
