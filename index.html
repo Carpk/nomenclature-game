@@ -8,17 +8,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/application.css" type="text/css">
 
-    <script type="text/javascript" src="js/cards.js"></script>
     <script type="text/javascript" src="js/ionicDeck.js"></script>
+    <script type="text/javascript" src="js/polyatomicIonsDeck.js"></script>
     <script type="text/javascript" src="js/eleTable.js"></script>
     <script type="text/javascript" src="js/application.js"></script>
   </head>
   <body>
     <h1 class="title">Nomenclature</h1>
     <div class="check-boxes float-right">
-      <input id="covalentCheckBox" type="checkbox" disabled> Covalent
-      <input id="ionicCheckBox" type="checkbox" checked disabled> Ionic
-      <input id="acidCheckBox" type="checkbox" disabled> Acids
+      <input id="ionicCheckBox" type="checkbox" disabled>
+        <span title="Neutral charged compound formed by ions, held by ionic bonding(electrostatic forces)">Ionic</span>
+      <input id="covalentCheckBox" type="checkbox" disabled>
+        <span title="Neutral charged compound, held by covalent/molecular bond(shares electron)">Covalent</span>
+      <input id="ionsCheckBox" type="checkbox" checked disabled>
+        <span title="Charged particle formed by two or more atoms, held by covalent/molecular bond(shares electron)">Polyatomic Ions</span>
+      <input id="acidCheckBox" type="checkbox" disabled>
+        <span title="Provides hydrogen ions(H+) when dissolved in water">Acids</span>
     </div> 
 
     <main role="main">
