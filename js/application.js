@@ -20,7 +20,7 @@ function answersMarkup(card, userInput) {
 
 function displayAnswer(userInput) {
   var color = 'tomato'
-  if (card.name.toLowerCase() === userInput.toLowerCase()) {color = 'limegreen'};
+  if (card.name.toLowerCase() === userInput.trim().toLowerCase()) {color = 'limegreen'};
   document.getElementById("answersField").style.backgroundColor = color;
   document.getElementById("answersField").innerHTML = answersMarkup(card, userInput);
 }
