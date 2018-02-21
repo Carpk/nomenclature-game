@@ -1,6 +1,10 @@
 
-.title {
-  display: inline-block;
+.sm-top-margin {
+  margin-top: 8px;
+}
+
+#hint-box{
+  background-color: yellow;
 }
 
 #answersField {

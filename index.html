@@ -14,25 +14,28 @@
     <script type="text/javascript" src="js/application.js"></script>
   </head>
   <body>
-    <img class="title-size" src="img/nomenclature-ele.png">
-    <div class="check-boxes float-right">
-      <input id="ionicCheckBox" type="checkbox" disabled>
-        <span class="mouse-help" title="Neutral charged compound formed by ions, held by ionic bonding(electrostatic forces)">Ionic</span>
-      <input id="covalentCheckBox" type="checkbox" disabled>
-        <span class="mouse-help" title="Neutral charged compound, held by covalent/molecular bond(shares electron)">Covalent</span>
-      <input id="ionsCheckBox" type="checkbox" checked disabled>
-        <span class="mouse-help" title="Charged particle, held by covalent/molecular bond(shares electron)">Ions</span>
-      <input id="acidCheckBox" type="checkbox" disabled>
-        <span class="mouse-help" title="Provides hydrogen ions(H+) when dissolved in water">Acids</span>
+    <div class="row">
+      <div class="col-md-12">
+        <img class="title-size" src="img/nomenclature-ele.png">
+        <div class="check-boxes float-right">
+          <input id="ionicCheckBox" type="checkbox" disabled>
+            <span class="mouse-help" title="Neutral charged compound formed by ions, held by ionic bonding(electrostatic forces)">Ionic</span>
+          <input id="covalentCheckBox" type="checkbox" disabled>
+            <span class="mouse-help" title="Neutral charged compound, held by covalent/molecular bond(shares electron)">Covalent</span>
+          <input id="ionsCheckBox" type="checkbox" checked disabled>
+            <span class="mouse-help" title="Charged particle, held by covalent/molecular bond(shares electron)">Ions</span>
+          <input id="acidCheckBox" type="checkbox" disabled>
+            <span class="mouse-help" title="Provides hydrogen ions(H+) when dissolved in water">Acids</span>
+        </div>
+      </div>
     </div> 
 
     <main role="main">
-      <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <div class="container">
-	  <div class="row">
+	  <div class="row flex-container">
 	    <div class="col-md-8" id="eleBoxesField"></div>
-	    <div class="col-md-4" id="answersField"></div>
+	    <div class="col-md-4 sm-top-margin" id="answersField"></div>
           </div>
         </div>
       </div>
@@ -49,9 +52,9 @@
               </form>
             </div>
           </div>
-          <div class="col-md-4" id="correctAnswer"></div>
+          <div class="col-md-4"></div>
         </div>
-      </div> <!-- /container -->
+      </div>
     </main>
 
 <script type="text/javascript">
