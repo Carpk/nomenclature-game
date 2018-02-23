@@ -13,7 +13,6 @@ function answersMarkup(card, userInput, hint) {
       ${card.formula}<br>
       ${card.name}<br>
       ${userInput}<br>
-      <span id="hint-box">${hint}</span>
     </div>
   `
   return markup
@@ -25,9 +24,18 @@ function standardized(userInput) {
   return input
 }
 
+function oxyanionMarkup() {
+  var text = "-ate suffix is used on the most common oxyanion.<br>-ite suffix is used on the oxyanion with one less oxygen"
+  var example = "Chlorine comes in hypochlorite (ClO), chlorite (ClO2), chlorate (ClO3) and perchlorate (ClO4) forms."
+  return text
+}
+
+
 function createHint(ans, input) {
   hint = ""
-
+  if (true) {
+    hint = oxyanionMarkup();
+  }
   return hint
 }
 
@@ -39,7 +47,7 @@ function displayAnswer(userInput) {
     color = 'tomato'
     hint = createHint(card.name, input);
   };
-  document.getElementById("answersField").style.backgroundColor = color;
+  document.getElementById("answerBox").style.backgroundColor = color;
   document.getElementById("answersField").innerHTML = answersMarkup(card, userInput, hint);
 }
 

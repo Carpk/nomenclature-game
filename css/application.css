@@ -3,12 +3,16 @@
   margin-top: 8px;
 }
 
+.rnd-corners {
+  border-radius: .25rem;
+}
+
 #hint-box{
   background-color: yellow;
+  border-style: solid;
 }
 
 #answersField {
-  border-radius: .25rem;
   display: inline-table;
   padding: 9px 18px 12px 18px;
 }
