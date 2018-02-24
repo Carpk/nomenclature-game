@@ -7,14 +7,19 @@
   border-radius: .25rem;
 }
 
-#hint-box{
-  background-color: yellow;
+.hint-box{
+  background-color: #ffff68;
   border-style: solid;
+  border-width: 1px;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding: 2px 4px 2px 4px;
 }
 
 #answersField {
   display: inline-table;
-  padding: 9px 18px 12px 18px;
+  padding: 9px 6px 12px 16px;
 }
 
 .eleBox {
