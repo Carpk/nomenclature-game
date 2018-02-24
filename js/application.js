@@ -19,33 +19,37 @@ function answersMarkup(card, userInput) {
 }
 
 function standardized(userInput) {
-  var input = userInput.trim().toLowerCase()
+  return userInput.trim().toLowerCase()
 
-  return input
 }
 
-function oxyanionMarkup() {
-  var text = "<div class='hint-box rnd-corners'>-ate is used on the most common oxyanion.<br>-ite is used on the oxyanion with one less oxygen</div>"
-  var example = "Chlorine comes in hypochlorite (ClO), chlorite (ClO2), chlorate (ClO3) and perchlorate (ClO4) forms."
-  return text
+function iteMarkup() {
+  return "-ite is used on the oxyanion with one less oxygen<br>"
 }
 
-function sOMETHINGnMarkup() {
-  var text = "<div class='hint-box rnd-corners'>-ide is used when the substance is binary (two nonmetal elements)</div>"
-  return text
+function ateMarkup() {
+  return "-ate is used on the most common oxyanion<br>"
+}
+
+function ideMarkup() {
+  return "-ide is used when the substance is binary (two nonmetal elements)<br>"
 }
 
 function thioMarkup() {
-  var text = "<div class='hint-box rnd-corners'>thio- means an oxygen has been replaced with a sulfur within the oxyanion.</div>"
-  return text
+  return "thio- means an oxygen has been replaced with a sulfur within the oxyanion<br>"
 }
 
 function createHint(ans, input) {
   hint = ""
-  if (ans == 'ite' && input == 'ate' || ans == 'ate' && input == 'ite') { hint = oxyanionMarkup(); }
 
-  if (ans == 'thio' && input != 'thio') { hint = thioMarkup(); }
+  if (ans.match(/ite$/) == 'ite' && input.match(/[a-z]{3}$/) != 'ite') { hint += iteMarkup(); }
+  if (input.match(/ite$/) == 'ite' && ans.match(/[a-z]{3}$/) != 'ite') { hint += iteMarkup(); }
+  if (ans.match(/ate$/) == 'ate' && input.match(/[a-z]{3}$/) != 'ate') { hint += ateMarkup(); }
+  if (input.match(/ate$/) == 'ate' && ans.match(/[a-z]{3}$/) != 'ate') { hint += ateMarkup(); }
+  if (ans.match(/^thio/) == 'thio' && input.match(/^[a-z]{3}/) != 'thio') { hint += thioMarkup(); }
 
+  if (hint != "") { hint = "<div class='hint-box rnd-corners'>" + hint + "</div>" }
+  
  return hint
 }
 
@@ -53,11 +57,12 @@ function displayAnswer(userInput) {
   var color = 'limegreen'
   var hint = ""
   var input = userInput.trim().toLowerCase()
-  if (card.name.toLowerCase() !== input) {
+  var ans = card.name.toLowerCase()
+  if (ans !== input) {
     color = 'tomato'
-    hint = createHint(card.name, input);
-    document.getElementById("hintsField").innerHTML = createHint(card.name, userInput);
+    hint = createHint(ans, input);
   };
+  document.getElementById("hintsField").innerHTML = hint;
   document.getElementById("answerBox").style.backgroundColor = color;
   document.getElementById("answersField").innerHTML = answersMarkup(card, userInput);
 }
