@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75067724-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-75067724-2');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+    <title>Nomenclature</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/application.css" type="text/css">
+
+    <script type="text/javascript" src="js/ionicDeck.js"></script>
+    <script type="text/javascript" src="js/polyatomicIonsDeck.js"></script>
+    <script type="text/javascript" src="js/eleTable.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-md-12">
+        <img class="title-size" src="img/nomenclature-ele.png">
+        <div class="check-boxes float-right">
+        </div>
+      </div>
+    </div> 
+
+    <main role="main">
+      <div class="jumbotron">
+        <div class="container">
+	  <div class="row flex-container">
+	    <div class="col-md-3"></div>
+	    <div class="col-md-6" id="answerBox">
+              <form class="form-signin">
+                <label for="inputCompoundFormula" class="sr-only">Compound Formula</label>
+                <input type="text" id="inputCompoundFormula" class="form-control" placeholder="H2PO4" autocomplete="off" autofocus>
+                <label for="inputCompoundFormula" class="sr-only">grams</label>
+		<input type="text" id="inputGrams" class="form-control" placeholder="28" autocomplete="off" autofocus>
+		<button class="btn btn-lg btn-primary btn-block" id="button" type="button">Check</button>
+              </form>            
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </main>
+
+<script type="text/javascript">
+
+var input = document.getElementById("inputCompoundFormula");
+
+
+
+
+
+
+function getCompoundArray(formula) {
+  return formula.match(/[A-Z][a-z]?\d*/g);
+}
+
+
+
+function main() {
+  input = document.getElementById("inputCompoundFormula").value;
+  input = "CaH2PO4"
+  var compoundDetailsArray = []
+
+  var inputArray = getCompoundArray(input);
+
+  for (element in inputArray) {
+    if ( (/\d/).test(element) ) {
+    
+      compoundDetailsArray += {symbol: element.match(/[A-z]/), multiplier: element.match(/\d/)}
+    } else {
+
+      compoundDetailsArray += {symbol: element.match(/[A-z]/), multiplier: "1"}
+    }
+  }
+    
+  
+  console.log(inputArray);
+  console.log(compoundDetailsArray[2].multiplier);
+}
+
+
+document.getElementById("button").onclick = function() {
+  main();
+  document.getElementById("inputCompoundFormula").focus();
+};
+
+
+input.addEventListener("keydown", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    main();
+  }
+});
+
+
+
+</script>
+
+  </body>
+</html>
+

@@ -3,9 +3,15 @@ function getRandomInt() {
   return Math.floor(Math.random() * Math.floor(cards.length));
 }
 
-function getCompoundArray(formula) {
+function getCompoundElementsArray(formula) {
   return formula.match(/[A-Z][a-z]?/g);
 }
+
+
+function getCompoundArray(formula) {
+  return formula.match(/[A-Z][a-z]?\d*/g);
+}
+
 
 function answersMarkup(card, userInput) {
   const markup = `
@@ -28,7 +34,7 @@ function iteMarkup() {
 }
 
 function ateMarkup() {
-  return "-ate is used on the most common oxyanion<br>"
+  return "-ate is used on the oxyanion with one more oxygen<br>"
 }
 
 function ideMarkup() {

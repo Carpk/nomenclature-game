@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75067724-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-75067724-2');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+    <title>Nomenclature</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/application.css" type="text/css">
+
+    <script type="text/javascript" src="js/ionicDeck.js"></script>
+    <script type="text/javascript" src="js/polyatomicIonsDeck.js"></script>
+    <script type="text/javascript" src="js/eleTable.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-md-12">
+        <img class="title-size" src="img/nomenclature-ele.png">
+        <div class="check-boxes float-right">
+        </div>
+      </div>
+    </div> 
+
+    <main role="main">
+      <div class="jumbotron">
+        <div class="container">
+	  <div class="row flex-container">
+<div class="col-md-2"></div>
+	    <div class="col-md-8">
+
+              <form class="form-signin">
+                <label for="inputCompoundName" class="sr-only">Compound Name</label>
+                <input type="text" id="balanceFrom" class="form-control" placeholder="Ca3P2 + H2O" autocomplete="off" autofocus>
+                <label for="inputCompoundName" class="sr-only">Compound Name</label>
+                <input type="text" id="balanceTo" class="form-control" placeholder="Ca(OH)2 + PH3" autocomplete="off" autofocus>
+                <button class="btn btn-lg btn-primary btn-block" id="button" type="button">Check</button>
+              </form>
+
+            </div>
+<div class="col-md-2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <div class="text-center">
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </main>
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+
+
+
+document.getElementById("button").onclick = function() {
+  var balanceFrom = document.getElementById("balanceFrom").value;
+  var balanceTo   = document.getElementById("balanceTo").value;
+
+  var fromArray = getCompoundArray(balanceFrom);
+
+  // display broken up values
+  console.log(fromArray)
+
+
+
+
+
+
+};
+
+
+
+
+
+</script>
+
+  </body>
+</html>
+
