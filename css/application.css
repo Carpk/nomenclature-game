@@ -7,6 +7,10 @@
   border-radius: .25rem;
 }
 
+.error-pic-size{
+  height: 300px;
+}
+
 .hint-box{
   background-color: #ffff68;
   border-style: solid;

@@ -1,11 +1,11 @@
 
 
 function ateMarkup() {
-  return "-ate is used because it has one more oxygen than the (root)ite oxyanion<br>"
+  return "-ate is used as it has one more oxygen than the -ite oxyanion<br>"
 }
 
 function iteMarkup() {
-  return "-ite is used because it has one less oxygen than the (root)ate oxyanion<br>"
+  return "-ite is used as it has one less oxygen than the -ate oxyanion<br>"
 }
 
 function ideMarkup() {
@@ -13,11 +13,11 @@ function ideMarkup() {
 }
 
 function thioMarkup() {
-  return "thio- means an oxygen has been replaced with a sulfur within the oxyanion<br>"
+  return "thio- is used as an oxygen has been replaced with a sulfur within the oxyanion<br>"
 }
 
 function createHint(ans, input) {
-  hint = ""
+  var hint = ""
   var userLastChar = input.match(/[a-z]{3}$/)
 
   if (ans.match(/ite$/) == 'ite' && (userLastChar == 'ate' || userLastChar == 'ide')) { hint += iteMarkup(); }
