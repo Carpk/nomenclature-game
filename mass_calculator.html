@@ -39,9 +39,7 @@
 	    <div class="col-md-6" id="answerBox">
               <form class="form-signin">
                 <label for="inputCompoundFormula" class="sr-only">Compound Formula</label>
-                <input type="text" id="inputCompoundFormula" class="form-control" placeholder="H2PO4" autocomplete="off" autofocus>
-                <label for="inputCompoundFormula" class="sr-only">grams</label>
-		<input type="text" id="inputGrams" class="form-control" placeholder="28" autocomplete="off" autofocus>
+                <input type="text" id="massPercentages" class="form-control" placeholder="62.0% C, 10.4% H, 27.5% O" autocomplete="off" autofocus>
 		<button class="btn btn-lg btn-primary btn-block" id="button" type="button">Check</button>
               </form>            
             </div>
@@ -61,62 +59,43 @@
 
 <script type="text/javascript">
 
-var input = document.getElementById("inputCompoundFormula");
+var input = document.getElementById("massPercentages");
 
 
 
 
 
 
-function getCompoundArray(formula) {
-  return formula.match(/[A-Z][a-z]?\d*/g);
-}
+function getEleHashedArray(inputArray) {
+  eleHashedArray = []
 
-
-function findElement(symbol) {
-  var ele  
-  for (ti in table) {
-    if (table[ti].symbol == symbol) { ele = table[ti] }
+  for (i in inputArray) {
+    eleHashedArray += {symbol: inputArray[i].match(/[A-Z][a-z]*/), percent: inputArray[i].match(/\d+/)} 
   }
-  return ele
+
+  return eleHashedArray;
 }
 
 
 
 function main() {
-  input = document.getElementById("inputCompoundFormula").value;
-  input = "CaH2PO4"
-  var compoundDetailsArray = []
+  input = document.getElementById("massPercentages").value;
+  input = "62.0% C, 10.4% H, 27.5% O"
 
-  var inputArray = getCompoundArray(input);
+  var inputArray = getEleHashedArray(input.split(","));
 
   for (i in inputArray) {
-    var element = inputArray[i]
-    if ( (/\d/).test(element) ) {
-      compoundDetailsArray.push( {
-        symbol: element.match(/[A-Z][a-z]*/)[0],
-        element: findElement(element.match(/[A-z][a-z]*/)[0]),
-        multiplier: element.match(/\d+/)[0]
-      });
-    } else {
-      compoundDetailsArray.push( {
-        symbol: element.match(/[A-z][a-z]*/)[0], 
-        element: findElement(element.match(/[A-z][a-z]*/)[0]),
-        multiplier: "1"
-      });
-    }
+    
+
+
+
+
 
   }
-   
-
-
-
-
-
-
+    
   
   console.log(inputArray);
-  console.log(compoundDetailsArray[3]);
+  console.log(compoundDetailsArray[2].multiplier);
 }
 
 
