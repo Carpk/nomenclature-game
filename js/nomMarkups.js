@@ -30,3 +30,14 @@ function createHint(ans, input) {
  return hint
 }
 
+function answersMarkup(card, userInput) {
+  const markup = `
+    <div class="">
+      ${card.formula}<br>
+      ${card.name}<br>
+      ${userInput}<br>
+    </div>
+  `
+  return markup
+}
+

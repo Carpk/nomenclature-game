@@ -12,17 +12,14 @@ function getCompoundArray(formula) {
   return formula.match(/[A-Z][a-z]?\d*/g);
 }
 
-
-function answersMarkup(card, userInput) {
-  const markup = `
-    <div class="">
-      ${card.formula}<br>
-      ${card.name}<br>
-      ${userInput}<br>
-    </div>
-  `
-  return markup
+function findElement(symbol) {
+  var ele  
+  for (ti in table) {
+    if (table[ti].symbol == symbol) { ele = table[ti] }
+  }
+  return ele
 }
+
 
 function standardized(userInput) {
   return userInput.trim().toLowerCase()
