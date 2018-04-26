@@ -75,7 +75,7 @@ function getEleHashedArray(inputArray) {
     var eleDetails = findElement(eleValue.match(/[A-z][a-z]*/))
     eleHashedArray.push({
       symbol: eleValue.match(/[A-Z][a-z]*/)[0],
-      percent: eleValue.match(/\d?[.]?\d+/)[0],
+      percent: eleValue.match(/\d*[.]?\d+/)[0],
       amu: Number( cutLastChars(eleDetails.atomicMass) ).toFixed(2),
       element: eleDetails
     }); 
@@ -175,8 +175,8 @@ function createTable(eleHashArray) {
 
 function main() {
   input = document.getElementById("massPercentages").value;
- // input = "62.0% C, 10.4% H, 27.5% O"
-  input = "62% C, 35% O, 2% H"
+  // input = "62.0% C, 10.4% H, 27.5% O"
+  
   var inputArray = getEleHashedArray(input.split(","));
 
   document.getElementById("table").innerHTML = ""  

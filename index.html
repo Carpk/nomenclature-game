@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/application.css" type="text/css">
 
+    <script type="text/javascript" src="js/dropdown.js"></script>
     <script type="text/javascript" src="js/ionicDeck.js"></script>
     <script type="text/javascript" src="js/polyatomicIonsDeck.js"></script>
     <script type="text/javascript" src="js/eleTable.js"></script>
@@ -27,7 +28,49 @@
     <div class="row">
       <div class="col-md-12">
         <a href="http://TheKleinBottle.com"><img class="title-size" src="img/nomenclature-ele.png"></a>
-        <div class="check-boxes float-right">
+
+
+
+<div class="navbar">
+  <div class="dropdown">
+    <button class="dropbtn" onclick="myFunction()">More<span class="caret"></span>
+    </button>
+    <div class="dropdown-content" id="navDropdown">
+      <a href="/mass_calculator.html">Mass calculator</a>
+      <a href="#">Link 2</a>
+    </div>
+  </div> 
+</div>
+
+
+
+        <li class="dropdown">
+          <button href="#" class="dropdown-toggle" onclick="myFunction()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></button>
+          <ul class="dropdown-menu dropdown-content" id="navDropdown">
+            <li><a href="#">mass caculator</a></li>
+            <li><a href="#">Something else here</a></li>
+          </ul>
+        </li>
+
+
+
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+
+
+	<div class="check-boxes float-right">
           <input id="ionicCheckBox" type="checkbox" disabled>
             <span class="mouse-help" title="Neutral charged compound formed by ions, held by ionic bonding(electrostatic forces)">Ionic</span>
           <input id="covalentCheckBox" type="checkbox" disabled>
