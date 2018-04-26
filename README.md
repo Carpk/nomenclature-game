@@ -5,4 +5,4 @@ This is a game to help learn nomenclature of chemical compunds. Site is written 
 
 ### Screenshot
 
-![landing page](https://raw.githubusercontent.com/Carpk/nomenclature/master/img/IMG_0008.JPG)
+![landing page](https://raw.githubusercontent.com/Carpk/nomenclature-game/master/img/IMG_0008.JPG)
